@@ -1,0 +1,24 @@
+{
+  "name": "modernjs",
+  "version": "1.0.0",
+  "description": "udemy tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LazyCROW21/ModernJS.git"
+  },
+  "keywords": [
+    "udemy",
+    "node",
+    "js"
+  ],
+  "author": "Hardik Kardam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LazyCROW21/ModernJS/issues"
+  },
+  "homepage": "https://github.com/LazyCROW21/ModernJS#readme"
+}
