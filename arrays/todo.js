@@ -49,3 +49,12 @@ let pendingTodos = getPendingTodos(todos, 'Sleep');
 for (let i = 0; i < pendingTodos.length; i++) {
     console.log(i+1, pendingTodos[i]);
 }
+
+console.log(todos.sort(function(a, b) {
+    if(!a.completed && b.completed) {
+        return -1;
+    } else if(!b.completed && a.completed) {
+        return 1;
+    }
+    return 0;
+}))

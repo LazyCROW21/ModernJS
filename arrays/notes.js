@@ -1,12 +1,12 @@
 
 const notes = [
     {
-        title: 'Note 1',
-        body: 'Some big sentence with absolutely no meaning'
-    },
-    {
         title: 'Note 2',
         body: 'Some other big sentence with absolutely no meaning'
+    },
+    {
+        title: 'Note 1',
+        body: 'Some big sentence with absolutely no meaning'
     },
     {
         title: 'Note 3',
@@ -65,3 +65,20 @@ const findNotes = function(notes, query) {
 
 // console.log(findNote(notes, 'Note 2'));
 console.log(findNotes(notes, 'wei'));
+
+const sortNotes = function(notes) {
+    notes.sort(function(a, b) {
+        let x = a.title.toLowerCase();
+        let y = b.title.toLowerCase();
+        if(x < y) {
+            return -1;
+        } else if(y < x) {
+            return 1;
+        }
+        return 0;
+    });
+}
+
+sortNotes(notes);
+
+console.log(notes);
