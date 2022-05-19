@@ -10,6 +10,10 @@
     <h1>Welcome to Todo app</h1>
     <hr />
     <input id="searchInp" type="text" placeholder="search.."/>
+    <label>
+        <input id="hideC" type="checkbox"/>
+        hide completed
+    </label>
     <h3>Todos:</h3>
     <p id="todo-info"></p>
     <hr />
@@ -19,7 +23,9 @@
         <button id="addTodoBtn">Add Todo</button>
     </form>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+<script src="./functions.js"></script>
 <script src="./main.js"></script>
 </html>
 <!-- cd node_modules/.bin -->
-<!-- live-server ../../notes-app -->
+<!-- live-server ../../todo-app -->
