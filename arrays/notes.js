@@ -1,4 +1,3 @@
-
 const notes = [
     {
         title: 'Note 2',
