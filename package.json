@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/LazyCROW21/ModernJS/issues"
   },
-  "homepage": "https://github.com/LazyCROW21/ModernJS#readme"
+  "homepage": "https://github.com/LazyCROW21/ModernJS#readme",
+  "dependencies": {
+    "live-server": "^1.2.2"
+  }
 }
