@@ -1,4 +1,7 @@
-let gradeCal = function(score, totalScore) {
+let gradeCal = (score, totalScore) => {
+    if(typeof score !== 'number' || typeof totalScore !== 'number') {
+        throw Error('score & totalScore should be of numeric type');
+    }
     let percentage = score * 100 / totalScore;
     let grade = 'F';
     if(percentage >= 90) {

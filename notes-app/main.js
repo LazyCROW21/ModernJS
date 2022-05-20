@@ -6,11 +6,11 @@ const filters = {
 };
 
 const notesJSON = localStorage.getItem('notes');
-if(notesJSON != null) {
+if(notesJSON) {
     notes = JSON.parse(notesJSON);
 }
 
-document.querySelector('#addNoteBtn').addEventListener('click', function(e) {
+document.querySelector('#addNoteBtn').addEventListener('click', (e) => {
     let uuid = uuidv4();
     let timestamp = moment().valueOf();
     notes.push({
@@ -24,22 +24,22 @@ document.querySelector('#addNoteBtn').addEventListener('click', function(e) {
     location.assign(`./note.html#${uuid}`);
 });
 
-document.querySelector('#clearNotesBtn').addEventListener('click', function(e) {
+document.querySelector('#clearNotesBtn').addEventListener('click', (e) => {
     document.querySelectorAll('.note').forEach(function(note){ note.remove(); });
 });
 
-document.querySelector('#searchInp').addEventListener('input', function(e){
+document.querySelector('#searchInp').addEventListener('input', (e) => {
     filters.searchText = e.target.value;
     // debugger;
     renderNotes(notes, filters);
 });
 
-document.querySelector('#sortOption').addEventListener('change', function(e){
+document.querySelector('#sortOption').addEventListener('change', (e) => {
     filters.sort = e.target.value;
     renderNotes(notes, filters);
 });
 
-window.addEventListener('storage', function(e){
+window.addEventListener('storage', (e) => {
     if(e.key === 'notes') {
         notes = JSON.parse(e.newValue);
     }

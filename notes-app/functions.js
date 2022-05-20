@@ -1,12 +1,15 @@
-const loadNotes = function() {
+'use strict'
+
+const loadNotes = () => {
     const notesJSON = localStorage.getItem('notes');
-    if(notesJSON != null) {
-        return JSON.parse(notesJSON);
+    try {
+        return notesJSON !== null ? JSON.parse(notesJSON) : [];
+    } catch (e) {
+        return [];
     }
-    return [];
 }
 
-const sortNotes = function(notes, option) {
+const sortNotes = (notes, option) => {
     if(option === 'E') {
         return notes.sort(function(a, b){
             if(a.updatedAt > b.updatedAt) {
@@ -37,10 +40,8 @@ const sortNotes = function(notes, option) {
     }
 }
 
-const saveNote = function(note) {
-    const idx = notes.findIndex(function (n){
-        return note.id === n.id;
-    });
+const saveNote = (note) => {
+    const idx = notes.findIndex((n) => note.id === n.id);
     if(idx > -1) {
         notes[idx].title = note.title;
         notes[idx].body = note.body;
@@ -48,23 +49,21 @@ const saveNote = function(note) {
     }
 }
 
-const removeNotes = function(uuid) {
-    const idx = notes.findIndex(function (note){
-        return note.id === uuid;
-    });
+const removeNotes = (uuid) => {
+    const idx = notes.findIndex((note) => note.id === uuid);
     if(idx > -1) {
         notes.splice(idx, 1);
     }
     localStorage.setItem('notes', JSON.stringify(notes));
 }
 
-const generateNoteDOM = function(note) {
+const generateNoteDOM = (note) => {
     const newD = document.createElement('div');
     const newP = document.createElement('a');
     const newB = document.createElement('button');
     
     newB.textContent = 'X';
-    newB.addEventListener('click', function(){
+    newB.addEventListener('click', () => {
         removeNotes(note.id);
         renderNotes(notes, filters);
     });
@@ -82,7 +81,7 @@ const generateNoteDOM = function(note) {
     return newD;
 }
 
-const renderNotes = function (notes, filters) {
+const renderNotes = (notes, filters) => {
     let filteredNotes = notes.filter(function(note){
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
     });

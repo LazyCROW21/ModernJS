@@ -2,12 +2,10 @@ const noteId = location.hash.substring(1);
 let notes = loadNotes();
 const timestampNow = moment().valueOf();
 
-const getNote = function(uuid) {
-    let note = notes.find(function(n){
-        return uuid === n.id;
-    });
+const getNote = (uuid) => {
+    let note = notes.find((n) => uuid === n.id);
     
-    if(note === undefined) {
+    if(note) {
         location.assign('./index.html');
     }
     return note;
@@ -15,13 +13,13 @@ const getNote = function(uuid) {
 
 let note = getNote(noteId);
 
-const setNoteForm = function (note) {
+const setNoteForm = (note) => {
     document.querySelector('#title').value = note.title;
     document.querySelector('#body').value = note.body;
     document.querySelector('#editAgo').textContent = moment(note.updatedAt).fromNow();
 }
 
-window.addEventListener('storage', function(e){
+window.addEventListener('storage', (e) => {
     if(e.key === 'notes') {
         notes = JSON.parse(e.newValue);
     }
@@ -29,7 +27,7 @@ window.addEventListener('storage', function(e){
     setNoteForm(note);
 });
 
-document.querySelector('#note-form').addEventListener('submit', function(e){
+document.querySelector('#note-form').addEventListener('submit', (e) => {
     e.preventDefault();
     note.title = document.querySelector('#title').value;
     note.body = document.querySelector('#body').value;

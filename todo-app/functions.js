@@ -1,9 +1,10 @@
 const loadTodos = function () {
     let todoJSON = localStorage.getItem('todos');
-    if (todoJSON !== null) {
-        return JSON.parse(todoJSON);
+    try {
+        return todoJSON ? JSON.parse(todoJSON) : [];
+    } catch (e) {
+        return [];
     }
-    return [];
 }
 
 const generateTodoDOM = function(todo) {
