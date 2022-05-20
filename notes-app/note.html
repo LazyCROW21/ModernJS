@@ -9,22 +9,17 @@
 <body>
     <h1>Edit Notes</h1>
     <a href="./index.html">All notes</a>
-    <!-- <input type="text" id="searchInp" placeholder="search.." />
-    <label>
-        Sort: 
-        <select id="sortOption">
-            <option value="E">Last Edit</option>
-            <option value="R">Recent</option>
-            <option value="A">A-Z</option>
-        </select>
-    </label>
-    <hr />
-    <p>Notes: </p>
-    <div id="notes-container"></div>
-    <button id="addNoteBtn">Create Note</button>
-    <button id="clearNotesBtn">Clear All</button> -->
+    <p>Last edited: <span id="editAgo"></span></p>
+    <form id="note-form">
+        <input type="text" id="title" name="title" placeholder="Title" />
+        <br>
+        <textarea id="body" name="body" placeholder="Body"></textarea>
+        <br>
+        <button id="saveNoteBtn">Save Note</button>
+    </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js" integrity="sha512-vFABRuf5oGUaztndx4KoAEUVQnOvAIFs59y4tO0DILGWhQiFnFHiR+ZJfxLDyJlXgeut9Z07Svuvm+1Jv89w5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="./functions.js"></script>
 <script src="./edit.js"></script>
 </html>
