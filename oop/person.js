@@ -1,27 +1,67 @@
-const Person = function (fN, lN, a, l = []) {
-    this.firstName = fN;
-    this.lastName = lN;
-    this.age = a;
-    this.likes = l;
+class Person {
+    constructor(fN, lN, a, l = []) {
+        this.firstName = fN;
+        this.lastName = lN;
+        this.age = a;
+        this.likes = l;
+    }
+    getBio () {
+        let bio = `${this.firstName} is ${this.age}`;
+        this.likes.forEach((like) => {
+            bio += ` ${this.firstName} likes ${like}.`;
+        });
+        return bio;
+    }
+    set setName(fullName){
+        const names = fullName.split(' ');
+        this.firstName = names[0];
+        this.lastName = names[1];
+    }
+};
+
+class Employee extends Person {
+    constructor(fN, lN, a, p, l = []) {
+        super(fN, lN, a, l);
+        this.position = p
+    }
+    get fullName() {
+        return this.firstName + ' ' + this.lastName;
+    }
+    getBio() {
+        let bio = `${this.fullName} is a ${this.position}`;
+        return bio;
+    }
+    getServiceYearsLeft() {
+        return 65 - this.age;
+    }
 }
 
-Person.prototype.getBio = function(){
-    let bio = `${this.firstName} is ${this.age}`;
-    this.likes.forEach((like) => {
-        bio += ` ${this.firstName} likes ${like}.`;
-    });
-    return bio;
+const Emp1 = new Employee('H', 'K', 21, 'Programmer', ['Football', 'R6']);
+
+console.log(Emp1);
+console.log(Emp1.getBio());
+
+// challenge
+class Student extends Person {
+    constructor(fN, lN, a, g, l = []) {
+        super(fN, lN, a, l);
+        this.grade = g
+    }
+    getBio() {
+        let bio = `${this.firstName} ${this.lastName} scored ${this.grade}.`;
+        if(this.grade >= 35) {
+            bio += ` ${this.firstName} passed`;
+        } else {
+            bio += ` ${this.firstName} failed`;
+        }
+        return bio;
+    }
+    upgradeGrade(upd) {
+        this.grade += upd;
+    }
 }
 
-Person.prototype.setName = function(fullName){
-    let fNL = fullName.split(' ');
-    this.firstName = fNL[0];
-    this.lastName = fNL[1];
-}
-
-const p1 = new Person('Hardik', 'Kardam', 21, ['Football']);
-const p2 = new Person('Yash', 'Kardam', 19);
-
-console.log(p1);
-console.log(p1.getBio());
-console.log(p2);
+const s1 = new Student('H', 'K', 21, 99, ['Football', 'R6']);
+console.log(s1);
+s1.upgradeGrade(1);
+console.log(s1.getBio());
