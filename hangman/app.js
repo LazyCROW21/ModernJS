@@ -40,3 +40,11 @@ window.addEventListener('keypress', function(e){
         gState.textContent = 'You can do it, keep playing!';
     }
 });
+
+getPuzzle((error, puzzle) => {
+    if(error) {
+        console.error('Puzzle 404');
+    } else {
+        console.log(puzzle);
+    }
+});
