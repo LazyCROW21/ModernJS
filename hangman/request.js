@@ -1,17 +1,12 @@
-const getPuzzle = (wordCnt, callback) => {
-    const req = new XMLHttpRequest();
-
-    req.addEventListener('readystatechange', function (e) {
-        if (e.target.readyState === 4 && e.target.status === 200) {
-            const data = JSON.parse(e.target.responseText);
-            console.log(data);
-            callback(null, data);
-        } else if(e.target.readyState === 4) {
-            callback('Request Error', null);
+const getPuzzle = (wordCnt) => {
+    return fetch('https://puzzle.mead.io/puzzle?wordCount='+wordCnt, {})
+    .then((response) => {
+        if(response.status === 200) {
+            return response.json();
+        } else {
+            throw new Error('Unable to fetch the puzzle');
         }
     });
-    req.open('GET', 'https://puzzle.mead.io/puzzle?wordCount='+wordCnt);
-    req.send();
 }
 
 const getPuzzleSync = () => {
@@ -25,4 +20,15 @@ const getPuzzleSync = () => {
     } else if(req.readyState === 4) {
         throw new Error('HTTP Request failed');
     }
+}
+
+const getGEO = (ip) => {
+    return fetch('http://ip-api.com/json/'+ip, {})
+    .then((response) => {
+        if(response.status === 200) {
+            return response.json();
+        } else {
+            throw new Error('Unable to fetch the puzzle');
+        }
+    });
 }
