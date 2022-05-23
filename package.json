@@ -4,7 +4,9 @@
   "description": "udemy tutorial",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doitbabel": "node node_modules/.bin/babel boilerplate/src/index.js -o boilerplate/public/scripts/bundle.js --presets env",
+    "doitls": "node node_modules/.bin/live-server boilerplate/public"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,5 @@
   "bugs": {
     "url": "https://github.com/LazyCROW21/ModernJS/issues"
   },
-  "homepage": "https://github.com/LazyCROW21/ModernJS#readme",
-  "dependencies": {
-    "live-server": "^1.2.2"
-  }
+  "homepage": "https://github.com/LazyCROW21/ModernJS#readme"
 }
