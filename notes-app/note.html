@@ -5,18 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notes App</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Edit Notes</h1>
-    <a href="./index.html">All notes</a>
-    <p>Last edited: <span id="editAgo"></span></p>
-    <form id="note-form">
-        <input type="text" id="title" name="title" placeholder="Title" />
-        <br>
-        <textarea id="body" name="body" placeholder="Body"></textarea>
-        <br>
-        <button id="saveNoteBtn">Save Note</button>
-    </form>
+    <div id="header">
+        <h1>Welcome to Notes app</h1>
+        <p>Manage all your notes here</p>
+    </div>
+    <div id="subhead">
+        <p>Edit Notes</p>
+        <div id="editNavBar">
+            <a href="./index.html">Home</a>
+            <p>Last edited: <span id="editAgo"></span></p>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="note-editor">
+            <form id="note-form">
+                <input type="text" id="title" name="title" placeholder="Title" />
+                <br>
+                <textarea id="body" name="body" placeholder="Body" rows="5"></textarea>
+                <br>
+                <button id="saveNoteBtn">Save Note</button>
+            </form>
+        </div>
+    </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/uuid@latest/dist/umd/uuidv4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment-with-locales.min.js" integrity="sha512-vFABRuf5oGUaztndx4KoAEUVQnOvAIFs59y4tO0DILGWhQiFnFHiR+ZJfxLDyJlXgeut9Z07Svuvm+1Jv89w5g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -60,13 +60,18 @@ const removeNotes = (uuid) => {
 const generateNoteDOM = (note) => {
     const newD = document.createElement('div');
     const newP = document.createElement('a');
+    const newLE = document.createElement('p');
     const newB = document.createElement('button');
     
+    newD.className = 'note';
+
     newB.textContent = 'X';
     newB.addEventListener('click', () => {
         removeNotes(note.id);
         renderNotes(notes, filters);
     });
+
+    newLE.textContent = 'Last edited: ' + moment(note.updatedAt).fromNow();
 
     if(note.title.length > 0) {
         newP.textContent = note.title;
@@ -78,18 +83,24 @@ const generateNoteDOM = (note) => {
 
     newD.appendChild(newB);
     newD.appendChild(newP);
+    newD.appendChild(newLE);
     return newD;
 }
 
 const renderNotes = (notes, filters) => {
+    const notesContainer = document.querySelector('#notes-container');
     let filteredNotes = notes.filter(function(note){
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
     });
     filteredNotes = sortNotes(filteredNotes, filters.sort);
-    document.querySelector('#notes-container').innerHTML = '';
-    filteredNotes.forEach(function(note){
-        document
-        .querySelector('#notes-container')
-        .appendChild(generateNoteDOM(note));
-    });
+    notesContainer.innerHTML = '';
+    if(filteredNotes.length <= 0) {
+        const emptyMsg = document.createElement('p');
+        emptyMsg.textContent = 'No notes to show..';
+        notesContainer.appendChild(emptyMsg);
+    } else {
+        filteredNotes.forEach(function(note){
+            notesContainer.appendChild(generateNoteDOM(note));
+        });
+    }
 };

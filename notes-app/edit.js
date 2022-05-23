@@ -4,8 +4,7 @@ const timestampNow = moment().valueOf();
 
 const getNote = (uuid) => {
     let note = notes.find((n) => uuid === n.id);
-    
-    if(note) {
+    if(!note) {
         location.assign('./index.html');
     }
     return note;
