@@ -1,0 +1,62 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: black;
+}
+
+p {
+    margin-bottom: 24px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#title {
+    text-align: center;
+}
+
+#puzzle {
+    border: 3px solid white;
+    border-radius: 4px;
+    letter-spacing: 4px;
+    padding: 4px;
+    text-align: center;
+    font-size: 24px;
+}
+
+#gL {
+    background-color: lightblue;
+    border-radius: 16px;
+    color: black;
+    padding: 8px;
+}
+
+#gArr {
+    letter-spacing: 8px;
+    background-color: burlywood;
+    padding: 8px;
+    color: black;
+    border-radius: 8px;
+    margin-left: 8px;
+}
+
+#reset {
+    border: 0;
+    background-color: red;
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#reset:hover {
+    background-color: darkred;
+    transition: 100ms linear all;
+}

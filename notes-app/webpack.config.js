@@ -1,10 +1,19 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        index: [
+            'babel-polyfill',
+            './src/index.js'
+        ],
+        edit: [
+            'babel-polyfill',
+            './src/edit.js'
+        ]
+    },
     output: {
         path: path.resolve(__dirname, 'public/scripts'),
-        filename: 'bundle.js'
+        filename: '[name]-bundle.js'
     },
     module: {
         rules: [
@@ -16,8 +25,7 @@ module.exports = {
                     options: {
                         presets: [
                             'env'
-                        ],
-                        plugins: ['transform-object-rest-spread']
+                        ]
                     }
                 }
             }

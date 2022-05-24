@@ -1,0 +1,53 @@
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    background-color: purple;
+    padding: 8px;
+    margin: 0;
+}
+
+input[type="text"] {
+    padding: 6px;
+}
+
+#addTodoBtn {
+    background-color: lightblue;
+    padding: 6px;
+    border-radius: 12px;
+    border: 0;
+    cursor: pointer;
+}
+
+#addTodoBtn:hover {
+    background-color: blue;
+    color: white;
+    transition: 100ms all linear;
+}
+
+.todo {
+    width: 100%;
+    max-width: 720px;
+    padding: 8px;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 36px auto 24px;
+    margin-bottom: 8px;
+    /* justify-items: center; */
+    align-items: center;
+}
+
+.todo button {
+    height: 24px;
+    width: 24px;
+}
+
+.todo span {
+    padding-left: 8px;
+}

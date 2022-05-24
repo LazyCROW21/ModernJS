@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div id="header">
+        <h1>Welcome to Notes app</h1>
+        <p>Manage all your notes here</p>
+    </div>
+    <div id="subhead">
+        <p>Edit Notes</p>
+        <div id="editNavBar">
+            <a href="./index.html">Home</a>
+            <p>Last edited: <span id="editAgo"></span></p>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="note-editor">
+            <form id="note-form">
+                <input type="text" id="title" name="title" placeholder="Title" />
+                <br>
+                <textarea id="body" name="body" placeholder="Body" rows="5"></textarea>
+                <br>
+                <button id="saveNoteBtn">Save Note</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="./scripts/edit-bundle.js"></script>
+</html>
